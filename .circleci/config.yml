@@ -11,7 +11,20 @@ workflows:
   daily:
     triggers:
       - schedule:
-          cron: "35 13 * * *"
+          cron: "0 9 * * *"
+          filters:
+            branches:
+              only:
+                - main
+    jobs:
+      - grafana/k6:
+         cloud: false
+         script: loadtests/performance-test.js --out json=full.json > /tmp/artifacts
+         arguments: --quiet
+  nightly:
+    triggers:
+      - schedule:
+          cron: "0 22 * * *"
           filters:
             branches:
               only:
