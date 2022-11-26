@@ -6,7 +6,7 @@ workflows:
    jobs:
      - grafana/k6:
          cloud: false
-         script: loadtests/performance-test.js
+         script: loadtests/performance-test.js --out json=full.json > /tmp/artifacts
          arguments: --quiet
   daily:
     triggers:
