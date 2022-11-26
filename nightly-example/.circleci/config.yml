@@ -1,0 +1,18 @@
+version: 2.1
+orbs:
+ grafana: grafana/k6@1.0.1
+workflows:
+  load_test:
+   jobs:
+     - grafana/k6:
+         script: loadtests/performance-test.js
+  nightly:
+    triggers:
+      - schedule:
+          cron: "0 0 * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - grafana/k6

@@ -1,0 +1,10 @@
+version: 2.1
+orbs:
+  grafana: grafana/k6@1.0.1
+workflows:
+  load_test:
+    jobs:
+     - grafana/k6:
+          cloud: true
+          script: loadtests/performance-test.js
+          arguments: --quiet
