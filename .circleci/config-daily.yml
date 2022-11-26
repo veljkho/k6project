@@ -5,11 +5,13 @@ workflows:
   load_test:
    jobs:
      - grafana/k6:
+         cloud: false
          script: loadtests/performance-test.js
+         arguments: --quiet
   nightly:
     triggers:
       - schedule:
-          cron: "0 0 * * *"
+          cron: "0 14 * * *"
           filters:
             branches:
               only:
