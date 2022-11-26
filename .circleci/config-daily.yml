@@ -8,10 +8,10 @@ workflows:
          cloud: false
          script: loadtests/performance-test.js
          arguments: --quiet
-  nightly:
+  daily:
     triggers:
       - schedule:
-          cron: "0 14 * * *"
+          cron: "10 14 * * *"
           filters:
             branches:
               only:
