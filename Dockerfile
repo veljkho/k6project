@@ -4,8 +4,7 @@ ADD . .
 RUN apk --no-cache add git
 RUN go install go.k6.io/xk6/cmd/xk6@latest
 RUN xk6 build --with github.com/mstoykov/xk6-counter --output /tmp/k6
-RUN go install go.k6.io/xk6/cmd/xk6@latest
-RUN xk6 build --output xk6-browser --with github.com/grafana/xk6-browser
+RUN xk6 build --with github.com/grafana/xk6-browser --output xk6-browser
 
 FROM alpine:3.14
 RUN apk add --no-cache ca-certificates && \
