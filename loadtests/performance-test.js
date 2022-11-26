@@ -19,7 +19,7 @@ export default function () {
 };
 
 
-// Comment is here
+// Comment is here again
 export function handleSummary(data) {
   console.log('Finished executing performance tests');
 
