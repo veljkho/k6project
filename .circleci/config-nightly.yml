@@ -13,6 +13,6 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - main
     jobs:
       - grafana/k6

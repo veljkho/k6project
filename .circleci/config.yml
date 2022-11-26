@@ -5,4 +5,6 @@ workflows:
  load_test:
    jobs:
     - grafana/k6:
+         cloud: false
          script: loadtests/performance-test.js
+         arguments: --quiet
