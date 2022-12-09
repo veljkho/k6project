@@ -2,7 +2,7 @@ import { check } from 'k6';
 import { chromium } from 'k6/x/browser';
 
 export default function () {
-  const browser = chromium.launch({ headless: false });
+  const browser = chromium.launch({ headless: true });
   const page = browser.newPage();
 
   page

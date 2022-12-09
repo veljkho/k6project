@@ -2,13 +2,13 @@ version: 2.1
 orbs:
  grafana: grafana/k6@1.0.1
 workflows:
-  performance:
+  pullrequest-performance:
    jobs:
      - grafana/k6:
          cloud: false
-         script: loadtests/performance-test.js --out json=full.json > /tmp/artifacts
+         script: browsertests/simple-test.js --out json=full.json > /tmp/artifacts
          arguments: --quiet
-  daily:
+  daily-performance:
     triggers:
       - schedule:
           cron: "0 9 * * *"
@@ -21,7 +21,7 @@ workflows:
          cloud: false
          script: loadtests/performance-test.js --out json=full.json > /tmp/artifacts
          arguments: --quiet
-  nightly:
+  nightly-performance:
     triggers:
       - schedule:
           cron: "0 22 * * *"
